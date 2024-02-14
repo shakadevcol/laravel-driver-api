@@ -1,0 +1,19 @@
+services:
+    app:
+        container_name: laravel-driver-api
+        build: ./docker/php
+        volumes:
+            - ./app:/var/www/html
+        ports:
+            - 9000:80
+            - 5173:5173
+
+    mysql:
+        image: mysql:latest
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: laravel_app
+        volumes:
+            - ./docker/mysql:/var/lib/mysql
+        ports:
+            - 3306:3306
