@@ -4,7 +4,8 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RefreshTokenController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Frontend\Profile\UserProfileController;
+use App\Http\Controllers\Frontend\Payments\PaymentMethodController;
+use App\Http\Controllers\Frontend\Rides\RideController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,5 +27,6 @@ Route::post('refresh-token', [RefreshTokenController::class, 'index'])
 Route::post('logout', [LogoutController::class, 'index']);
 
 Route::middleware('auth:sanctum')->group(function() {
-    Route::get('profile', [UserProfileController::class, 'index']);
+    Route::post('payments/payment-method', [PaymentMethodController::class, 'store']);
+    Route::resource('rides', RideController::class);
 });
