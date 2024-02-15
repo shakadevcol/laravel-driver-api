@@ -14,8 +14,7 @@ class LoginTest extends TestCase
     use RefreshDatabase;
 
     protected $seed = true;
-    protected $seeder = UserSeeder::class;
-
+    
     public function test_user_can_login_with_credentials(): void
     {
         $user = User::where('id', 1)->first();

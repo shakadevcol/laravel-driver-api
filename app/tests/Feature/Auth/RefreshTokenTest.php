@@ -14,7 +14,7 @@ class RefreshTokenTest extends TestCase
     use RefreshDatabase;
 
     protected $seed = true;
-    protected $seeder = UserSeeder::class;
+    //protected $seeder = UserSeeder::class;
 
     public function test_user_can_refresh_token(): void
     {
@@ -24,10 +24,6 @@ class RefreshTokenTest extends TestCase
             'email' => $user->email,
             'password' => '123456'
         ]);
-
-        //$response->dd();
-        //$response->dumpHeaders();
-        //$response->ddHeaders();
 
         $cookie = $response->headers->get('Set-Cookie');
         $cookieAr = explode(";", $cookie); 
