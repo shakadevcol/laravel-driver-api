@@ -17,7 +17,14 @@ password: 123456
 
 3. The rider request a new ride using the enpoint **"/api/rides"**
 
-4. A driver finish a ride using the endpoint **"/api/rides/{ride_id}"**. Sending the final location (latitude, longitude).
+4. A driver logs in with his credencials using the endpoint "api/login". (this endpoint returns a token)
+
+```bash
+email: driver@gmail.com
+password: 123456
+```
+
+5. The driver finish a ride using the endpoint **"/api/rides/{ride_id}"**. Sending the final location (latitude, longitude).
 
 These are the enpoints availables to complete the flow.
 
