@@ -3,19 +3,21 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Services\Auth\LogoutService;
 use Illuminate\Http\Client\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Cookie;
 
 class LogoutController extends Controller
 {
+    private $logoutService;
+
+    public function __construct(LogoutService $logoutService)
+    {
+        $this->logoutService = $logoutService;
+    }
+
     public function index()
     { 
-        $cookie = Cookie::forget('jwt');
-        $refreshCookie = Cookie::forget('refresh-jwt');
-
-        return response([
-            'message' => 'Logout completed.'
-        ])->withCookie($cookie)->withCookie($refreshCookie);
+        return $this->logoutService->logout();    
     }
 }
