@@ -67,7 +67,13 @@ chmod -R 770 bootstrap/cache
 php artisan key:generate
 ```
 
-5. In the .env file set your wompi keys using WOMPI_PUBLIC_KEY and WOMPI_PRIVATE_KEY variables
+5. In the .env file set the wompi variables with your credentials.
+
+```bash
+WOMPI_API_URL=
+WOMPI_PUBLIC_KEY=
+WOMPI_PRIVATE_KEY=
+```
 
 6. Run the database migration and seeders
 
