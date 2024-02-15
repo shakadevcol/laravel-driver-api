@@ -58,7 +58,7 @@ class User extends Authenticatable
 
     public function riderInformation(): HasOne
     {
-        return $this->hasOne(DriverInformation::class);
+        return $this->hasOne(RiderInformation::class);
     }
 
     public function paymentInformation(): HasOne
